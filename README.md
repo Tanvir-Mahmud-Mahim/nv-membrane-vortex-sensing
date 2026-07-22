@@ -1,5 +1,8 @@
 # NV Micromembrane Vortex Sensing: Simulation Codebase
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21498663.svg)](https://doi.org/10.5281/zenodo.21498663)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
 Complete open-source simulation framework for the manuscript
 "Simulation Co-Design of Free-Standing Diamond Micromembrane Quantum Sensors
 for Nanoscale Imaging of Vortex Matter in Tantalum Superconducting Circuits".
