@@ -60,9 +60,8 @@ Total compute is about two CPU-hours; every figure regenerates from
 
 - Code (this repository): https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing
 - Simulation database and derived model outputs: Zenodo,
-  doi:10.5281/zenodo.21498663 (replace with the DOI assigned at deposit;
-  see `zenodo/INSTRUCTIONS.md` in the project folder). The `data/*.npz`
-  files are distributed through Zenodo rather than git.
+  [doi:10.5281/zenodo.21498663](https://doi.org/10.5281/zenodo.21498663).
+  The `data/*.npz` files are distributed through Zenodo rather than git.
 
 ## Material anchors (all openly published)
 
