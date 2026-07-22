@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "nv-membrane-vortex-sensing: end-to-end simulation of diamond micromembrane NV imaging of vortices in tantalum superconducting circuits"
+authors:
+  - family-names: Mahim
+    given-names: Tanvir M.
+    affiliation: BRAC University
+  - family-names: Rahman
+    given-names: M. Mosaddequr
+    affiliation: BRAC University
+  - family-names: Mohsin
+    given-names: A.S.M.
+    affiliation: BRAC University
+license: Apache-2.0
+repository-code: "https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing"
+preferred-citation:
+  type: article
+  title: "Imaging Single Vortices and Their Losses in Tantalum Superconducting Circuits With a Pick-and-Place Diamond Quantum Sensor: An End-to-End Simulation Study"
+  authors:
+    - family-names: Mahim
+      given-names: Tanvir M.
+      affiliation: BRAC University
+    - family-names: Rahman
+      given-names: M. Mosaddequr
+      affiliation: BRAC University
+    - family-names: Mohsin
+      given-names: A.S.M.
+      affiliation: BRAC University
+  year: 2026
+  status: preprint
