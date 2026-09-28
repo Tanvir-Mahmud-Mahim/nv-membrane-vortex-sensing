@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "If you use this code, please cite the paper below."
-title: "nv-membrane-vortex-sensing: end-to-end simulation of diamond micromembrane NV imaging of vortices in tantalum superconducting circuits"
+message: "If you use this code, please cite the article below."
+title: "nv-membrane-vortex-sensing: fluctuation-dissipation spin relaxometry of trapped vortices in tantalum films"
 authors:
   - family-names: Mahim
     given-names: Tanvir M.
@@ -13,9 +13,11 @@ authors:
     affiliation: BRAC University
 license: Apache-2.0
 repository-code: "https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing"
+version: "2.0.0"
+date-released: "2026-09-28"
 preferred-citation:
   type: article
-  title: "Imaging Single Vortices and Their Losses in Tantalum Superconducting Circuits With a Pick-and-Place Diamond Quantum Sensor: An End-to-End Simulation Study"
+  title: "Listening to Vortex Noise: Diamond Spin Sensors Reveal Which Trapped Vortices Cause Microwave Loss in Tantalum Qubit Films"
   authors:
     - family-names: Mahim
       given-names: Tanvir M.

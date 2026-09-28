@@ -1,7 +1,16 @@
-"""Shared publication figure style (IEEE two-column, colorblind-safe)."""
+"""Shared publication figure style (IEEE two-column, colorblind-safe,
+Times New Roman text and math, TrueType fonts embedded in PDF)."""
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import glob, os
+from matplotlib import font_manager as _fm
+
+# Register Times New Roman if the TrueType files are available locally
+# (they are not redistributed with this code). Fallbacks keep a Times face.
+for _f in (glob.glob(os.path.expanduser("~/.fonts/times*.ttf"))
+           + glob.glob(os.path.join(os.path.dirname(__file__), "fonts", "times*.ttf"))):
+    _fm.fontManager.addfont(_f)
 
 # Okabe-Ito categorical order (validated colorblind-safe)
 C = {"blue": "#0072B2", "orange": "#E69F00", "green": "#009E73",
@@ -10,7 +19,8 @@ C = {"blue": "#0072B2", "orange": "#E69F00", "green": "#009E73",
 ORDER = [C["blue"], C["orange"], C["green"], C["pink"], C["sky"], C["verm"]]
 
 plt.rcParams.update({
-    "font.size": 8, "font.family": "DejaVu Sans",
+    "font.size": 8, "font.family": "serif",
+    "font.serif": ["Times New Roman", "TeX Gyre Termes", "Nimbus Roman", "STIXGeneral"],
     "axes.labelsize": 8, "axes.titlesize": 8.5,
     "xtick.labelsize": 7.5, "ytick.labelsize": 7.5,
     "legend.fontsize": 7, "legend.frameon": False,
@@ -18,7 +28,9 @@ plt.rcParams.update({
     "xtick.top": True, "ytick.right": True,
     "lines.linewidth": 1.4, "figure.dpi": 200, "savefig.dpi": 400,
     "savefig.bbox": "tight", "axes.prop_cycle": plt.cycler(color=ORDER),
-    "mathtext.fontset": "dejavusans",
+    "mathtext.fontset": "custom", "mathtext.rm": "Times New Roman",
+    "mathtext.it": "Times New Roman:italic", "mathtext.bf": "Times New Roman:bold",
+    "mathtext.sf": "Times New Roman", "mathtext.cal": "Times New Roman:italic", "pdf.fonttype": 42, "ps.fonttype": 42,
 })
 
 CMAP_SEQ = "viridis"     # magnitude (|psi|)
