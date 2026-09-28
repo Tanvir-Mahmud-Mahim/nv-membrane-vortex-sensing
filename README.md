@@ -1,89 +1,61 @@
-# NV Micromembrane Vortex Sensing: Simulation Codebase
+# Vortex noise as a loss meter: NV spin relaxometry of trapped vortices in tantalum films
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21498663.svg)](https://doi.org/10.5281/zenodo.21498663)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
-Complete open-source simulation framework for the paper
-"Imaging Single Vortices and Their Losses in Tantalum Superconducting
-Circuits With a Pick-and-Place Diamond Quantum Sensor: An End-to-End
-Simulation Study".
+Open-source code for the article
+"Listening to Vortex Noise: Diamond Spin Sensors Reveal Which Trapped
+Vortices Cause Microwave Loss in Tantalum Qubit Films"
+(T. M. Mahim, M. M. Rahman, A. S. M. Mohsin, BRAC University).
 
-## Dependencies
+The code computes the thermal magnetic noise of a trapped vortex at a
+nitrogen-vacancy (NV) spin, converts it into the microwave loss of the same
+vortex through the fluctuation-dissipation theorem, simulates field-cooled
+tantalum films with hole lattices (pyTDGL), tests the key relations with
+Brownian dynamics, and regenerates every number and figure of the article.
 
-Python 3.11 with `tdgl` (pyTDGL 0.9), `numpy`, `scipy`, `matplotlib`,
-`scikit-learn` (optional). Install: `pip install tdgl`.
-LaTeX with IEEEtran for the manuscript.
+## Install
 
-## Layout
+    pip install -r requirements.txt      # Python 3.11
 
-- `params.py` - all material and device constants with sources
-- `tdgl_common.py` - device builders, field-cool protocols, census loader
-  (converts pyTDGL's coherence-length mesh units to um)
-- `figstyle.py` - shared publication figure style (colorblind-safe)
-- `scripts/00_calibrate.py` - current-scale calibration of the bare strip
-- `scripts/01b_targets_seeded.py` - field-cooled vortex configurations
-  (nucleation-pulse protocol; production data)
-- `scripts/01c_targets_epscool.py` - near-Tc protocol (documents vortex
-  expulsion in clean mesoscopic strips; not used for production data)
-- `scripts/02_pinning_iv.py` - staircase IV, bare vs antidot, flux-flow
-  suppression and the depinning-current lower bound
-- `scripts/06_microwave_drive.py` - direct 2.87 GHz TDGL drive
-- `scripts/03_nv_observables.py` - Pearl kernel, Biot-Savart NV-plane maps,
-  sensitivity model, two-channel Langevin noise spectroscopy
-- `scripts/04_reconstruction.py` - physics-informed inversion (joint NNLS +
-  local fits), CRB, occupancy classification
-- `scripts/05_covariance_dynamics.py` - two-NV covariance magnetometry of
-  vortex telegraph hopping
-- `scripts/07_analysis.py` - consolidated results -> `data/results.json`
-- `scripts/08_figures.py` - all manuscript figures
+Figures use Times New Roman when its TrueType files are found in `~/.fonts`
+(or in `fonts/` next to `figstyle.py`); otherwise a Times-like fallback is used.
 
-## Reproduction
+## Files
 
-Run from the repository root, in order:
+| File | Purpose |
+|---|---|
+| `params.py` | every material, sensor and device parameter, with its source or marked as assumed |
+| `physics.py` | finite-thickness London vortex field, displacement noise, NV rates, FDT loss, Mattis-Bardeen conductivity, slab (quasiparticle) noise, resonator loss |
+| `tests.py` | closed-form self-tests of `physics.py` (all must print PASS) |
+| `tdgl_common.py` | pyTDGL device builders and vortex detection |
+| `figstyle.py` | figure style (Times New Roman, colorblind-safe colors) |
+| `scripts/01_fieldcool_sweep.py` | TDGL field-cooled census versus cooling field and hole size |
+| `scripts/02_tdgl_ac_loss.py` | TDGL 5 GHz drive: dissipation of hole-held versus interstitial flux |
+| `scripts/03_langevin_fdt.py` | Brownian-dynamics checks of the FDT, the T1 formula and echo dephasing |
+| `scripts/04_nv_maps.py` | static field and relaxation maps above the TDGL census |
+| `scripts/05_observables.py` | single-vortex observables, temperature and sensitivity scans |
+| `scripts/06_inference.py` | synthetic-measurement test (recovering drag, pinning and loss) |
+| `scripts/07_figures.py` | all figures of the article and its supplementary material |
+| `run_all.sh` | full reproduction (about 8 CPU hours) |
 
-```
-python3 scripts/00_calibrate.py
-python3 scripts/01b_targets_seeded.py
-python3 scripts/02_pinning_iv.py
-python3 scripts/06_microwave_drive.py
-python3 scripts/03_nv_observables.py
-python3 scripts/04_reconstruction.py
-python3 scripts/05_covariance_dynamics.py
-python3 scripts/07_analysis.py
-python3 scripts/08_figures.py
-```
+All scripts are run from this folder and write to `data/`; figures go to
+`figures/` (or `$FIG_DIR`).
 
-Total compute is about two CPU-hours; every figure regenerates from
-`data/results.json` and the raw `.npz` outputs.
+## Reproduce
 
-## Availability
+    ./run_all.sh
 
-- Code (this repository): https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing
-- Simulation database and derived model outputs: Zenodo,
-  [doi:10.5281/zenodo.21498663](https://doi.org/10.5281/zenodo.21498663).
-  The `data/*.npz` files are distributed through Zenodo rather than git.
+To redraw the figures from the archived results instead, copy the contents of
+the Zenodo `data_database/` and `data_models/` folders into `data/` and run
+`python3 scripts/07_figures.py`.
 
-## Material anchors (all openly published)
+## Data
 
-- Ta type-A films: Bahrami et al., arXiv:2503.03168 (Tc, Hc2, rho_n, eta)
-- Al surface losses: Hedrick et al., arXiv:2603.13183
-- Diamond micromembranes: Pakpour-Tabrizi et al., Adv. Opt. Mater. 2026,
-  doi:10.1002/adom.202503864 (NV depth, T2, x7 collection gain)
-- Covariance magnetometry: Rovny et al., Science 378, 1301 (2022)
+The simulation database and model outputs are archived on Zenodo
+(https://doi.org/10.5281/zenodo.21498663; the latest version of the record
+contains the data of this article).
 
-## License
+## Citation
 
-Code is released under the Apache License 2.0 (see `LICENSE`).
-The Zenodo dataset is released under CC BY 4.0.
-
-## How to cite
-
-If you use this code or data, please cite:
-
-> T. M. Mahim, M. M. Rahman, and A.S.M. Mohsin, "Imaging Single Vortices
-> and Their Losses in Tantalum Superconducting Circuits With a
-> Pick-and-Place Diamond Quantum Sensor: An End-to-End Simulation Study,"
-> 2026. Code: https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing
-> Data: doi:10.5281/zenodo.21498663
-
-A machine-readable citation is in `CITATION.cff`.
+See `CITATION.cff`. License: Apache-2.0.
