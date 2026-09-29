@@ -13,8 +13,8 @@ authors:
     affiliation: BRAC University
 license: Apache-2.0
 repository-code: "https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing"
-version: "2.0.0"
-date-released: "2026-09-28"
+version: "2.0.1"
+date-released: "2026-09-29"
 identifiers:
   - type: doi
     value: 10.5281/zenodo.23022201
