@@ -15,6 +15,10 @@ license: Apache-2.0
 repository-code: "https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing"
 version: "2.0.0"
 date-released: "2026-09-28"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23022201
+    description: "Simulation database and model outputs (Zenodo, version 2.0)"
 preferred-citation:
   type: article
   title: "Listening to Vortex Noise: Diamond Spin Sensors Reveal Which Trapped Vortices Cause Microwave Loss in Tantalum Qubit Films"
