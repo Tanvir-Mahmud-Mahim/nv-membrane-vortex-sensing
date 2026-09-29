@@ -1,6 +1,6 @@
 # Vortex noise as a loss meter: NV spin relaxometry of trapped vortices in tantalum films
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21498663.svg)](https://doi.org/10.5281/zenodo.21498663)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23022201.svg)](https://doi.org/10.5281/zenodo.23022201)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Open-source code for the article
@@ -46,15 +46,15 @@ All scripts are run from this folder and write to `data/`; figures go to
 
     ./run_all.sh
 
-To redraw the figures from the archived results instead, copy the contents of
-the Zenodo `data_database/` and `data_models/` folders into `data/` and run
-`python3 scripts/07_figures.py`.
+To redraw the figures from the archived results instead, unzip the Zenodo
+archive, copy the contents of its `data_database/` and `data_models/` folders
+into `data/`, and run `python3 scripts/07_figures.py`.
 
 ## Data
 
-The simulation database and model outputs are archived on Zenodo
-(https://doi.org/10.5281/zenodo.21498663; the latest version of the record
-contains the data of this article).
+The simulation database and model outputs of this article are archived on
+Zenodo: https://doi.org/10.5281/zenodo.23022201 (version 2.0). The concept DOI
+https://doi.org/10.5281/zenodo.21498662 always resolves to the latest version.
 
 ## Citation
 
