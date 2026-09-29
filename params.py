@@ -2,7 +2,7 @@
 
 Every number below is either (i) taken from a cited measurement, (ii) derived
 from those numbers with a stated formula, or (iii) marked ASSUMED and varied
-in a sensitivity analysis (scripts/07_sensitivity.py).
+in a sensitivity analysis (scripts/04_observables.py).
 
 Primary material source
   [B25] Bahrami et al., arXiv:2503.03168, Table I, alpha-Ta film "D2" on
@@ -45,7 +45,7 @@ ETA_BS = PHI0**2 / (2 * np.pi * (XI_0_NM * 1e-9) ** 2 * RHO_N_OHM_M)
 LAMBDA_0_NM = 50.0                    # at T_MEAS_K (2 K)
 LAMBDA_SCAN_NM = (35.0, 50.0, 70.0, 100.0)
 # ASSUMED: film thickness ([B25] does not state it). The stray field is
-# insensitive to d once d > 2 lambda (checked in 07_sensitivity.py).
+# insensitive to d once d > 2 lambda (checked in scripts/04_observables.py).
 THICKNESS_NM = 150.0
 GAMMA_TDGL = 10.0                     # pyTDGL inelastic-scattering parameter
 
