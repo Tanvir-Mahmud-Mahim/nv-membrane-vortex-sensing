@@ -2,6 +2,14 @@
 
 All notable changes to this code are listed here, newest first.
 
+## v2.0.3 (3 October 2026)
+
+Documentation only; every number is unchanged.
+
+- Article title changed again, to "Diamond Spin Sensors Measure the Microwave
+  Loss of Each Trapped Vortex in Tantalum Qubit Films" (README.md and
+  CITATION.cff).
+
 ## v2.0.2 (3 October 2026)
 
 Figure labels and documentation only; every number is unchanged.
