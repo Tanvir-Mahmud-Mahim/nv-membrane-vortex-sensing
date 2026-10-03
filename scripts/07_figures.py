@@ -75,8 +75,8 @@ def fig_vortex():
             color=C["pink"])
     ax.set_xlabel("frequency (Hz)")
     ax.set_ylabel(r"$S_x$ (nm$^2$/Hz)")
-    ax.set_ylim(1e-14, 1e5)
-    ax.set_yticks([1e-14, 1e-10, 1e-6, 1e-2, 1e2])
+    ax.set_ylim(1e-14, 1e10)
+    ax.set_yticks([1e-14, 1e-10, 1e-6, 1e-2, 1e2, 1e6])
     ax.set_xticks([1e3, 1e5, 1e7, 1e9, 1e11])
     ax.legend(loc="upper left", fontsize=6.0, handlelength=1.3, ncol=2,
               title=r"$k_p$ (N/m)", title_fontsize=6.2, columnspacing=0.8,
@@ -123,7 +123,7 @@ def fig_vortex():
     ax2 = ax.twiny()
     ax2.loglog(sl[:, 0], sl[:, 1], "s--", color=C["orange"], ms=3.5)
     ax.plot([], [], "s--", color=C["orange"], ms=3.5, label=r"vs $\lambda$ ($h$ = 50 nm)")
-    ax.legend(loc="lower left", fontsize=6.3)
+    ax.legend(loc="upper right", fontsize=6.3)
     ax2.set_xlabel(r"penetration depth $\lambda$ (nm), $h$ = 50 nm",
                    color=C["orange"], fontsize=7)
     ax2.tick_params(axis="x", colors=C["orange"], labelsize=6.5)
@@ -322,7 +322,7 @@ def fig_readout():
     ax.axhline(P.NV_INTRINSIC_RATE, color="k", ls="--", lw=0.6)
     ax.set_xlabel(r"pinning stiffness $k_p$ (N/m)")
     ax.set_ylabel(r"rate (s$^{-1}$)")
-    ax.set_ylim(1e2, 1e9)
+    ax.set_ylim(1e2, 1e11)
     axb = ax.twinx()
     axb.semilogx(kp, 100 * np.array([r["blur_frac"] for r in rows]),
                  color=C["orange"], ls="-.")
@@ -435,9 +435,14 @@ def fig_maps():
                     color=c, ms=3.5, mfc="none")
     ax.set_xlabel(r"cooling field $B/B_\Phi$")
     ax.set_ylabel("number in $2\\times2~\\mu$m$^2$")
-    ax.legend(loc="upper left", fontsize=6.2)
-    ax.text(0.03, 0.70, "solid: interstitial (lossy)\ndotted: in holes (silent)",
-            transform=ax.transAxes, ha="left", va="top", fontsize=6.0)
+    ax.set_ylim(-1, 44)
+    from matplotlib.lines import Line2D
+    h, l = ax.get_legend_handles_labels()
+    h += [Line2D([], [], color="k", ls="-", lw=1),
+          Line2D([], [], color="k", ls=":", lw=1.2)]
+    l += ["between holes (lossy)", "in holes (silent)"]
+    ax.legend(h, l, loc="upper left", fontsize=6.0, handlelength=1.8,
+              borderaxespad=0.3, labelspacing=0.3)
     plab(ax, "(d)")
     save(fig, "fig_maps")
 
@@ -526,29 +531,40 @@ def fig_supp():
             for (hx, hy), q in zip(cz["hole_centers_um"], cz["hole_quanta"]):
                 if q > 0:
                     ax.text(hx, hy, str(q), ha="center", va="center", fontsize=5)
-            hd = {"bare": "no holes", "anti15": "150 nm", "anti20": "200 nm"}[nm.split("_")[0]]
-            ax.set_title(f"{hd}, {cz['B_over_Bphi']:.1f}$B_\\Phi$: "
-                         f"{len(cz['interstitial_um'])} int.", fontsize=6.3, pad=2)
-    fig.subplots_adjust(left=0.01, right=0.99, top=0.95, bottom=0.01,
-                        wspace=0.08, hspace=0.22)
+            hd = {"bare": "no holes", "anti15": "150 nm holes",
+                  "anti20": "200 nm holes"}[nm.split("_")[0]]
+            nv = len(cz["interstitial_um"])
+            where = "" if nm.startswith("bare") else " between holes"
+            ax.set_title(f"{hd}, {cz['B_over_Bphi']:.1f} $B_\\Phi$\n"
+                         f"{nv} {'vortex' if nv == 1 else 'vortices'}{where}",
+                         fontsize=6.3, pad=2, linespacing=1.15)
+    fig.subplots_adjust(left=0.01, right=0.99, top=0.93, bottom=0.01,
+                        wspace=0.08, hspace=0.32)
     save(fig, "figS1_census", supp=True)
     # S2: probe voltage traces
     import glob as _g
-    fig, ax = plt.subplots(1, 2, figsize=(FW_2COL, 2.3))
+    fig, ax = plt.subplots(1, 2, figsize=(FW_2COL, 2.7))
     per = 1.0 / P.F_RES_HZ / P.TAU_0_S
+    names = {"anti15_B0": "holes, no field", "anti15_B8": r"holes, 1.0 $B_\Phi$",
+             "anti15_B12": r"holes, 1.5 $B_\Phi$",
+             "anti15_B8zfc": r"holes, 1.0 $B_\Phi$, field after cooling",
+             "bare_B0": "no holes, no field", "bare_B4": r"no holes, 0.5 $B_\Phi$"}
     cols = [C["grey"], C["orange"], C["blue"], C["green"], C["verm"], C["pink"], C["sky"]]
     for c, f in zip(cols, sorted(_g.glob("data/ac_loss/*_I1000.npz"))):
         z = np.load(f); js = json.load(open(f[:-4] + ".json"))
         t = z["t"] / per
         m_ = t >= 0.5
         ax[0].plot(t[m_], z["V"][m_] * js["V0_V"] * 1e6, color=c, lw=0.8,
-                   label=js["case"].replace("_", " "))
+                   label=names[js["case"]])
         ax[1].plot(z["I"][m_] / 1e3, z["V"][m_] * js["V0_V"] * 1e6, color=c, lw=0.8)
     ax[0].set_xlabel("time (drive periods)"); ax[0].set_ylabel(r"probe voltage ($\mu$V)")
-    ax[0].legend(fontsize=5.8, ncol=2, loc="lower left")
+    leg = fig.legend(*ax[0].get_legend_handles_labels(), loc="upper center",
+                     ncol=3, fontsize=6.3, frameon=False, bbox_to_anchor=(0.5, 1.0))
+    for lh in leg.get_lines():
+        lh.set_linewidth(2.0)
     ax[1].set_xlabel("drive current (mA)"); ax[1].set_ylabel(r"probe voltage ($\mu$V)")
     plab(ax[0], "(a)"); plab(ax[1], "(b)")
-    fig.subplots_adjust(left=0.08, right=0.985, top=0.92, bottom=0.18, wspace=0.3)
+    fig.subplots_adjust(left=0.08, right=0.985, top=0.78, bottom=0.16, wspace=0.3)
     save(fig, "figS2_ac_traces", supp=True)
     # S3: noise spectra of the Brownian runs versus analytic forms
     d = json.load(open("data/langevin_checks.json"))
