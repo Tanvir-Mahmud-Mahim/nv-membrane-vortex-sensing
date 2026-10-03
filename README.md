@@ -1,11 +1,11 @@
-# Listening to Vortex Noise: Simulation Code
+# Vortex Noise and Microwave Loss: Simulation Code
 
 [![Data DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23022201.svg)](https://doi.org/10.5281/zenodo.23022201)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Release](https://img.shields.io/badge/release-v2.0.1-green.svg)](https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing/releases/latest)
+[![Release](https://img.shields.io/badge/release-v2.0.2-green.svg)](https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing/releases/latest)
 
-Code for the article **"Listening to Vortex Noise: Diamond Spin Sensors Reveal
-Which Trapped Vortices Cause Microwave Loss in Tantalum Qubit Films"**
+Code for the article **"Thermal Noise Measures the Microwave Loss of Each
+Trapped Vortex in Tantalum Qubit Films"**
 by Tanvir M. Mahim, M. Mosaddequr Rahman, and A.S.M. Mohsin
 (Department of Electrical and Electronic Engineering, BRAC University).
 
@@ -202,7 +202,7 @@ Each value in `params.py` is marked with its source.
 
 **Measured tantalum film values** come from sample D2 in Table I of
 Bahrami et al., *Vortex Motion Induced Losses in Tantalum Resonators*,
-arXiv:2503.03168 (2025), https://doi.org/10.48550/arXiv.2503.03168:
+Phys. Rev. B 113, 054505 (2026), https://doi.org/10.1103/4ny9-9n5b:
 critical temperature 4.39 K, upper critical field 0.132 T,
 coherence length 49.9 nm, mean free path 142.3 nm,
 normal resistivity 0.55 microohm cm, and activation temperature 0.37 K.
@@ -264,8 +264,9 @@ Each is scanned in the article to show how much it matters:
 
 | Version | Date | Article | Data |
 |---|---|---|---|
-| **v2.0.1** (this version) | 29 Sep 2026 | Same as v2.0.0; clearer guide and script order, results unchanged | https://doi.org/10.5281/zenodo.23022201 |
-| v2.0.0 | 29 Sep 2026 | Listening to Vortex Noise ... (current manuscript) | https://doi.org/10.5281/zenodo.23022201 |
+| **v2.0.2** (this version) | 3 Oct 2026 | New article title; clearer figure labels, results unchanged | https://doi.org/10.5281/zenodo.23022201 |
+| v2.0.1 | 29 Sep 2026 | Clearer guide and script order, results unchanged | https://doi.org/10.5281/zenodo.23022201 |
+| v2.0.0 | 29 Sep 2026 | Same manuscript, earlier title "Listening to Vortex Noise ..." | https://doi.org/10.5281/zenodo.23022201 |
 | v1 | Jul 2026 | Earlier end-to-end imaging manuscript | https://doi.org/10.5281/zenodo.21498663 |
 
 Details are in [CHANGELOG.md](CHANGELOG.md).
@@ -278,9 +279,8 @@ Please cite the article and the data archive. GitHub also shows a
 **"Cite this repository"** button in the right-hand column, which reads
 `CITATION.cff`.
 
-> T. M. Mahim, M. M. Rahman, and A.S.M. Mohsin, "Listening to Vortex Noise:
-> Diamond Spin Sensors Reveal Which Trapped Vortices Cause Microwave Loss in
-> Tantalum Qubit Films" (2026).
+> T. M. Mahim, M. M. Rahman, and A.S.M. Mohsin, "Thermal Noise Measures the
+> Microwave Loss of Each Trapped Vortex in Tantalum Qubit Films" (2026).
 >
 > Data: T. M. Mahim, M. M. Rahman, and A.S.M. Mohsin, Simulation database and
 > model outputs, Zenodo, version 2.0 (2026), https://doi.org/10.5281/zenodo.23022201
