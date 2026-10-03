@@ -5,8 +5,8 @@ from those numbers with a stated formula, or (iii) marked ASSUMED and varied
 in a sensitivity analysis (scripts/04_observables.py).
 
 Primary material source
-  [B25] Bahrami et al., arXiv:2503.03168, Table I, alpha-Ta film "D2" on
-        sapphire (type-A, clean limit):
+  [B25] Bahrami et al., Phys. Rev. B 113, 054505 (2026), arXiv:2503.03168.
+        Table I, alpha-Ta film "D2" on sapphire (type-A, clean limit):
         Tc = 4.39 K, Hc2(0) = 0.132 T, xi = 49.9 nm, l = 142.3 nm,
         RRR = 65.1, rho_n(5 K) = 0.55 uOhm cm, eta = 4.99e-8 kg/(m s)
         (eta computed in [B25] from eta = Phi0^2 / (2 pi xi^2 rho_n)),
