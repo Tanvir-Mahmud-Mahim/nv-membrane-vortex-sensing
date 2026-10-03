@@ -2,6 +2,17 @@
 
 All notable changes to this code are listed here, newest first.
 
+## v2.0.2 (3 October 2026)
+
+Figure labels and documentation only; every number is unchanged.
+
+- New article title: "Thermal Noise Measures the Microwave Loss of Each
+  Trapped Vortex in Tantalum Qubit Films".
+- `scripts/07_figures.py`: legends moved so that no text overlaps the data
+  (Figs. 2b, 2e, 3d, 6a, S2); plain-language labels in Figs. 3d, S1, and S2.
+- Reference to Bahrami et al. updated to the published version
+  (Phys. Rev. B 113, 054505, 2026).
+
 ## v2.0.1 (29 September 2026)
 
 Documentation and organisation only; every number and figure is unchanged.
