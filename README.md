@@ -2,9 +2,9 @@
 
 [![Data DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23022201.svg)](https://doi.org/10.5281/zenodo.23022201)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Release](https://img.shields.io/badge/release-v2.0.2-green.svg)](https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing/releases/latest)
+[![Release](https://img.shields.io/badge/release-v2.0.3-green.svg)](https://github.com/Tanvir-Mahmud-Mahim/nv-membrane-vortex-sensing/releases/latest)
 
-Code for the article **"Thermal Noise Measures the Microwave Loss of Each
+Code for the article **"Diamond Spin Sensors Measure the Microwave Loss of Each
 Trapped Vortex in Tantalum Qubit Films"**
 by Tanvir M. Mahim, M. Mosaddequr Rahman, and A.S.M. Mohsin
 (Department of Electrical and Electronic Engineering, BRAC University).
@@ -264,7 +264,8 @@ Each is scanned in the article to show how much it matters:
 
 | Version | Date | Article | Data |
 |---|---|---|---|
-| **v2.0.2** (this version) | 3 Oct 2026 | New article title; clearer figure labels, results unchanged | https://doi.org/10.5281/zenodo.23022201 |
+| **v2.0.3** (this version) | 3 Oct 2026 | Current article title, results unchanged | https://doi.org/10.5281/zenodo.23022201 |
+| v2.0.2 | 3 Oct 2026 | New article title; clearer figure labels, results unchanged | https://doi.org/10.5281/zenodo.23022201 |
 | v2.0.1 | 29 Sep 2026 | Clearer guide and script order, results unchanged | https://doi.org/10.5281/zenodo.23022201 |
 | v2.0.0 | 29 Sep 2026 | Same manuscript, earlier title "Listening to Vortex Noise ..." | https://doi.org/10.5281/zenodo.23022201 |
 | v1 | Jul 2026 | Earlier end-to-end imaging manuscript | https://doi.org/10.5281/zenodo.21498663 |
@@ -279,8 +280,8 @@ Please cite the article and the data archive. GitHub also shows a
 **"Cite this repository"** button in the right-hand column, which reads
 `CITATION.cff`.
 
-> T. M. Mahim, M. M. Rahman, and A.S.M. Mohsin, "Thermal Noise Measures the
-> Microwave Loss of Each Trapped Vortex in Tantalum Qubit Films" (2026).
+> T. M. Mahim, M. M. Rahman, and A.S.M. Mohsin, "Diamond Spin Sensors Measure
+> the Microwave Loss of Each Trapped Vortex in Tantalum Qubit Films" (2026).
 >
 > Data: T. M. Mahim, M. M. Rahman, and A.S.M. Mohsin, Simulation database and
 > model outputs, Zenodo, version 2.0 (2026), https://doi.org/10.5281/zenodo.23022201
